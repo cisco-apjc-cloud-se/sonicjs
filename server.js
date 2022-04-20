@@ -314,6 +314,7 @@ function main() {
     synchronize: process.env.TYPEORM_SYNCHRONIZE,
     logging:process.env.TYPEORM_LOGGING,
     ssl: sslParam,
+    migrationsRun: process.env.TYPEORM_MIGRATIONS_RUN,
   };
 
   if (process.env.TYPEORM_CONNECTION === "sqlite") {
