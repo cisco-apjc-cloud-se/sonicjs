@@ -308,7 +308,7 @@ function main() {
   }
 
   let connectionSettings = {
-    url: process.env.DATABASE_URL,
+    url: process.env.TYPEORM_URL,
     type: process.env.TYPEORM_CONNECTION,
     entities: ["server/data/entity/*.js"],
     synchronize: process.env.TYPEORM_SYNCHRONIZE,
@@ -320,7 +320,7 @@ function main() {
     connectionSettings.database = process.env.TYPEORM_DATABASE;
   }
 
-  if (process.env.TYPEORM_CONNECTION === "mysql") {
+  if (process.env.TYPEORM_CONNECTION === "mysql" || process.env.TYPEORM_CONNECTION === "postgres" || process.env.TYPEORM_CONNECTION === "cockroachdb" ) {
     connectionSettings.host = process.env.TYPEORM_HOST;
     connectionSettings.port = process.env.TYPEORM_PORT;
     connectionSettings.username = process.env.TYPEORM_USERNAME;
@@ -335,6 +335,3 @@ function main() {
 }
 
 main();
-
-
-
